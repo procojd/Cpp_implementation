@@ -33,35 +33,17 @@ node* MakeTree(node* root) {
 }
 
 void levelOrderTraversal(node* root) {
-    queue<node*> q;
-    q.push(root);
-    q.push(NULL);
-
+    queue<node*> q; q.push(root); q.push(NULL);
     while(!q.empty()) {
         node* temp = q.front();
         q.pop();
-
         if(temp == NULL) { 
-            //purana level complete traverse ho chuka hai
-            cout << endl;
-            if(!q.empty()) { 
-                //queue still has some child ndoes
-                q.push(NULL);
-            }  
-        }
-        else{
+            if(!q.empty()) q.push(NULL); 
+        }else{
             cout << temp -> data << " ";
-            if(temp ->left) {
-                q.push(temp ->left);
-            }
-
-            if(temp ->right) {
-                q.push(temp ->right);
-            }
-        }
-    }
-
-}
+            if(temp ->left) q.push(temp ->left);
+            if(temp ->right) q.push(temp ->right);
+        }}}
 
 void inorder(node* root) {
     //base case
@@ -80,11 +62,9 @@ void preorder(node* root) {
     if(root == NULL) {
         return ;
     }
-
     cout << root-> data << " ";
     preorder(root->left);
     preorder(root->right);
-
 }
 
 void postorder(node* root) {
