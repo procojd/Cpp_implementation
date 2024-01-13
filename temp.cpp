@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <queue>
 using namespace std;
 int main() {
     // Creating a map
@@ -30,6 +31,12 @@ int main() {
     for (const auto& [key, value] : myMap) {
         cout << key << ": " << value << "\n";
     }
+    priority_queue<int> tempQueue;
+    while (!tempQueue.empty()) {
+        cout << tempQueue.top() << " ";
+        tempQueue.pop();
+    }
+    cout << endl;
 
     return 0;
 }

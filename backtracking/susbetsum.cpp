@@ -10,31 +10,24 @@ bool isSubsetSum(vector<int>& set, int n, int sum, vector<int>& subset) {
         // Subset with the given sum found
         return true;
     }
-
     if (n == 0 && sum != 0) {
         // Subset with the given sum not possible
         return false;
     }
-
     // Exclude the last element and check the remaining subset
     if (set[n - 1] > sum) {
         return isSubsetSum(set, n - 1, sum, subset);
     }
-
     // Consider including or excluding the last element in the subset
     if (isSubsetSum(set, n - 1, sum, subset)) {
         return true;
     }
-
     subset.push_back(set[n - 1]);
-
     if (isSubsetSum(set, n - 1, sum - set[n - 1], subset)) {
         return true;
     }
-
     // If no subset is found, remove the last element from the current subset
     subset.pop_back();
-
     return false;
 }
 
