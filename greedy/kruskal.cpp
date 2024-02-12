@@ -6,17 +6,17 @@
 using namespace std;
 
 // Structure to represent an edge in the graph
-struct Edge {
-    int to;
-    int weight;
-};
+
 
 // Function to add an edge to the graph
 void addEdge(vector<vector<Edge>>& graph, int from, int to, int weight) {
     graph[from].push_back({to, weight});
     graph[to].push_back({from, weight});
 }
-
+struct Edge {
+    int to;
+    int weight;
+};
 // Function to perform Prim's algorithm and find the minimum spanning tree
 void prim(vector<vector<Edge>>& graph, int startVertex) {
     int numVertices = graph.size();
